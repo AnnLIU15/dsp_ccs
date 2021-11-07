@@ -1,0 +1,50 @@
+; single_test.sa
+; cal bilinear interpolation with data getting (single test version)
+; src_data(in) -> src_data
+; src_w(in) -> src_width
+; u(in)  -> i*times - (int32_t)(i*times)
+; r_limit(in) -> i==dst_height-1
+; times(in) -> 1/factor
+; q_var(in) -> 2^q*var -> q_var
+; @date 2021107
+	.global _single_test
+	.global _ufloat2int
+	.global _cal_abcd
+
+
+_single_test: .cproc src_data,cnt_j, src_w, u, r_limit, times,q_var
+			.reg y_idx_f, y_idx, c_limit
+			.reg u_q, times_q, v_q
+			.reg y_src_idx, row_src_var
+			.reg a_idx,b_idx,c_idx,d_idx
+			.reg a,b,c,d
+			.reg out_var
+			; trans float to int
+			.call u_q = _ufloat2int(u,q_var)
+			.call times_q = _ufloat2int(times,q_var)
+			zero  c_limit
+			||mpy 	times_q,cnt_j,y_idx_f
+			shru	y_idx_f, q_var,y_idx
+			; find idx for abcd
+			[c_limit] add y_idx, 0 ,y_src_idx
+			[!c_limit] add y_idx, 1 ,y_src_idx
+			||shl		y_idx, q_var,v_q
+			sub		y_idx_f,v_q,v_q
+			[r_limit]	mvk 0,row_src_var
+			[!r_limit]	add src_w,0,row_src_var
+			add	y_idx,0,a_idx
+			||add	y_idx,0,b_idx
+			||add	y_src_idx,0,c_idx
+			||add	y_src_idx,0,d_idx
+			add	    b_idx,row_src_var,b_idx
+			||add	d_idx,row_src_var,d_idx
+			; get var
+			ldbu	*+src_data[a_idx],a
+			ldbu	*+src_data[b_idx],b
+			ldbu	*+src_data[c_idx],c
+			ldbu	*+src_data[d_idx],d
+			; cal it
+			.call out_var = _cal_abcd(a,b,c,d,u_q,v_q,q_var)
+
+			.return out_var
+			.endproc
