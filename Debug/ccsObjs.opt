@@ -1,1 +1,1 @@
-"./ufloat2int.obj" "./single_test.obj" "./main.obj" "./func.obj" "./cal_bilinear.obj" "./cal_abcd.obj" "../DM642.cmd" -l"libc.a" 
+"./sa_func/ufloat2int.obj" "./sa_func/single_test.obj" "./sa_func/cal_bilinear.obj" "./sa_func/cal_abcd.obj" "./src/func.obj" "./main.obj" "../DM642.cmd" -l"libc.a" 

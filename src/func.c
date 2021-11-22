@@ -4,7 +4,7 @@
  *  Created on: 2021-10-13
  *      Author: Ann
  */
-#include "func.h"
+#include "../include/func.h"
 
 uint8_t bilinear_interpolation(const char *img_path, const char *save_path, const float scale_factor, const float times, const int is_sa)
 {

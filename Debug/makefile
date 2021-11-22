@@ -8,12 +8,12 @@ CG_TOOL_ROOT := C:/ti/ccsv5/tools/compiler/c6000_7.4.4
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
-"./ufloat2int.obj" \
-"./single_test.obj" \
+"./sa_func/ufloat2int.obj" \
+"./sa_func/single_test.obj" \
+"./sa_func/cal_bilinear.obj" \
+"./sa_func/cal_abcd.obj" \
+"./src/func.obj" \
 "./main.obj" \
-"./func.obj" \
-"./cal_bilinear.obj" \
-"./cal_abcd.obj" \
 "../DM642.cmd" \
 -l"libc.a" \
 
@@ -25,7 +25,11 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include src/subdir_vars.mk
+-include sa_func/subdir_vars.mk
 -include subdir_rules.mk
+-include src/subdir_rules.mk
+-include sa_func/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -127,9 +131,9 @@ bmp.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(C6000_EXECUTABLE_OUTPUTS__QUOTED) "bmp.out"
-	-$(RM) "func.pp" "main.pp" 
-	-$(RM) "cal_abcd.obj" "cal_bilinear.obj" "func.obj" "main.obj" "single_test.obj" "ufloat2int.obj" 
-	-$(RM) "cal_abcd.pp" "cal_bilinear.pp" "single_test.pp" "ufloat2int.pp" 
+	-$(RM) "main.pp" "src\func.pp" 
+	-$(RM) "main.obj" "src\func.obj" "sa_func\cal_abcd.obj" "sa_func\cal_bilinear.obj" "sa_func\single_test.obj" "sa_func\ufloat2int.obj" 
+	-$(RM) "sa_func\cal_abcd.pp" "sa_func\cal_bilinear.pp" "sa_func\single_test.pp" "sa_func\ufloat2int.pp" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "bmpInfo.h"
+#include"bmpInfo.h"
 
 /* sa function */
 uint8_t cal_abcd(uint8_t, uint8_t, uint8_t, uint8_t, int32_t, int32_t, int32_t);
