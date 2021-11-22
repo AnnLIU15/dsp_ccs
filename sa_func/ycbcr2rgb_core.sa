@@ -1,0 +1,44 @@
+; float2int.sa
+; let float into int like the operation -> (int)((float)*(1<<q_var))
+; float_x(in) -> float data
+; q_var(in) -> 2^q*var -> q_var
+; @date 2021122
+	.global _ycbcr2rgb_core
+
+_ycbcr2rgb_core: .cproc y,cb,cr,r,g,b
+            .reg  tmp_g, tmp_g1, tmp_b, tmp_r
+            .reg  of_r,of_g,of_b
+            .reg v_1_164,v_1_402, v_344,v_714,v_1_772,v_128,v_0
+            mvk         1192, v_1_164                ; 1.164 << 10
+            ||mvk       1436, v_1_402                ; 1.402 << 10
+            mvk         -352, v_344                  ; 1.402 << 10
+            ||mvk       -731, v_714                  ; -0.714 << 10
+            mvk         1815, v_1_772                ;1.772 << 10
+            ||mvk       128,v_128
+            ; cb-=128 cr-=128
+            sub         cb,v_128,cb
+            ||sub       cr,v_128,cr
+            zero        v_0
+            mpy         y,v_1_164,y 
+            ||mpy       cb,v_1_772,tmp_b
+            mpy         cr,v_1_402,tmp_r
+            ||mpy       cb,v_344,tmp_g
+            mpy         cr,v_714,tmp_g1
+            ||add       y,tmp_g,tmp_g
+
+            add         tmp_b,y,tmp_b
+            ||add       y,tmp_r,tmp_r
+            add         tmp_g,tmp_g1,tmp_g
+            ||shr       tmp_b,10,tmp_b
+            shr         tmp_r,10,tmp_r
+            ||shr       tmp_g,10,tmp_g
+            cmplt       tmp_b,v_0,of_b
+            ||cmplt     tmp_r,v_0,of_r
+            cmplt       tmp_g,v_0,of_g
+            ||[of_b]    zero     tmp_b
+            [of_g]      zero     tmp_g  
+            ||[of_r]    zero     tmp_r 
+            stb         tmp_r, *r
+            ||stb       tmp_g, *g
+            stb         tmp_b, *b
+            .endproc

@@ -1,0 +1,28 @@
+; float2int.sa
+; let float into int like the operation -> (int)((float)*(1<<q_var))
+; float_x(in) -> float data
+; q_var(in) -> 2^q*var -> q_var
+; @date 2021107
+	.global _float2int
+
+_float2int: .cproc float_x, q_var
+			.reg exp_var_x, mantissa_x, sign_x
+			.reg rt_var, shl_xy, exp_base
+			; 15(truncation of bits)-exp-q+127
+			mvk             142, exp_base
+			||mvk				1, shl_xy
+			shl				shl_xy,15,shl_xy
+			||extu            float_x, 1, 24, exp_var_x
+			[!exp_var_x] mvk 0,rt_var
+            [!exp_var_x] B rt_process
+            extu            float_x, 0, 31, sign_x
+			extu			float_x, 9, 17, mantissa_x
+			||sub			exp_base,exp_var_x, exp_var_x
+			sub            	exp_var_x, q_var, exp_var_x
+			||or 				mantissa_x,shl_xy,mantissa_x
+			shru			mantissa_x,exp_var_x,rt_var
+            [sign_x]        sub 0,rt_var,rt_var
+rt_process:
+
+			.return rt_var
+			.endproc

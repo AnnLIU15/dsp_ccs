@@ -8,8 +8,10 @@ CG_TOOL_ROOT := C:/ti/ccsv5/tools/compiler/c6000_7.4.4
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
+"./sa_func/ycbcr2rgb_core.obj" \
 "./sa_func/ufloat2int.obj" \
 "./sa_func/single_test.obj" \
+"./sa_func/float2int.obj" \
 "./sa_func/cal_bilinear.obj" \
 "./sa_func/cal_abcd.obj" \
 "./src/func.obj" \
@@ -132,8 +134,8 @@ bmp.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 clean:
 	-$(RM) $(C6000_EXECUTABLE_OUTPUTS__QUOTED) "bmp.out"
 	-$(RM) "main.pp" "src\func.pp" 
-	-$(RM) "main.obj" "src\func.obj" "sa_func\cal_abcd.obj" "sa_func\cal_bilinear.obj" "sa_func\single_test.obj" "sa_func\ufloat2int.obj" 
-	-$(RM) "sa_func\cal_abcd.pp" "sa_func\cal_bilinear.pp" "sa_func\single_test.pp" "sa_func\ufloat2int.pp" 
+	-$(RM) "main.obj" "src\func.obj" "sa_func\cal_abcd.obj" "sa_func\cal_bilinear.obj" "sa_func\float2int.obj" "sa_func\single_test.obj" "sa_func\ufloat2int.obj" "sa_func\ycbcr2rgb_core.obj" 
+	-$(RM) "sa_func\cal_abcd.pp" "sa_func\cal_bilinear.pp" "sa_func\float2int.pp" "sa_func\single_test.pp" "sa_func\ufloat2int.pp" "sa_func\ycbcr2rgb_core.pp" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
