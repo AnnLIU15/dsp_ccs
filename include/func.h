@@ -30,8 +30,6 @@ void ycbcr2rgb_col(uint8_t *,int32_t);
 /* ycbcr2rgb */
 uint8_t ycrbr2rgb(const char *img_path, const char *save_path);
 
-void write_ycrcb_k(float_t* data_ptr);
-
 /* bi_linear interpolation for img */
 uint8_t bilinear_interpolation(const char *img_path, const char *save_path, const float scale_factor, const float times, const int is_sa);
 

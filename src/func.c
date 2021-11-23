@@ -71,20 +71,6 @@ uint8_t ycrbr2rgb(const char *img_path, const char *save_path)
 	return return_val;
 }
 
-void write_ycrcb_k(float_t* data_ptr)
-{
-	/* get ycrcb_kernel 
-	 * data_ptr(inout): ycrcb kernel
-	 */
-	/*[[1.164,0,1.402],
-	 * [1.164,-0.344,-0.714],
-	 * [1.164,1.772,0]]
-	 */
-	*(data_ptr)=1.164;*(data_ptr+1)=0;*(data_ptr+2)=1.402;
-	*(data_ptr+3)=1.164;*(data_ptr+4)=-0.344;*(data_ptr+5)=-0.714;
-	*(data_ptr+6)=1.164;*(data_ptr+7)=1.772;*(data_ptr+8)=0;
-}
-
 
 uint8_t bilinear_interpolation(const char *img_path, const char *save_path, const float scale_factor, const float times, const int is_sa)
 {
@@ -246,7 +232,7 @@ void get_row_data(FILE *in_ptr, uint8_t *data, const uint32_t row, const uint32_
 	uint32_t data_offset_begin;
 	int32_t equal_width = src_width;
 	if(8==bi_used_cnt)
-	{ 
+	{
 		data_offset_begin = 1078 + (src_height - row - 1) * offset_width;
 	}
 	else if(24==bi_used_cnt)
