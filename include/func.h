@@ -23,7 +23,8 @@ uint8_t single_test(uint8_t *, int32_t, int32_t, float_t, uint8_t, float_t, int3
 
 void cal_bilinear(uint8_t *, uint8_t *, int32_t, int32_t, float_t, uint8_t, float_t, int32_t);
 
-int16_t ycbcr2rgb_core(uint8_t,uint8_t,uint8_t,uint8_t*,uint8_t*,uint8_t*);
+void ycbcr2rgb_col(uint8_t *,int32_t);
+
 /* c_function */
 
 /* ycbcr2rgb */

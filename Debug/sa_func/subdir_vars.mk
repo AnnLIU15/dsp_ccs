@@ -9,7 +9,7 @@ SA_SRCS += \
 ../sa_func/float2int.sa \
 ../sa_func/single_test.sa \
 ../sa_func/ufloat2int.sa \
-../sa_func/ycbcr2rgb_core.sa 
+../sa_func/ycbcr2rgb_col.sa 
 
 OBJS += \
 ./sa_func/cal_abcd.obj \
@@ -17,7 +17,7 @@ OBJS += \
 ./sa_func/float2int.obj \
 ./sa_func/single_test.obj \
 ./sa_func/ufloat2int.obj \
-./sa_func/ycbcr2rgb_core.obj 
+./sa_func/ycbcr2rgb_col.obj 
 
 SA_DEPS += \
 ./sa_func/cal_abcd.pp \
@@ -25,7 +25,7 @@ SA_DEPS += \
 ./sa_func/float2int.pp \
 ./sa_func/single_test.pp \
 ./sa_func/ufloat2int.pp \
-./sa_func/ycbcr2rgb_core.pp 
+./sa_func/ycbcr2rgb_col.pp 
 
 OBJS__QUOTED += \
 "sa_func\cal_abcd.obj" \
@@ -33,7 +33,7 @@ OBJS__QUOTED += \
 "sa_func\float2int.obj" \
 "sa_func\single_test.obj" \
 "sa_func\ufloat2int.obj" \
-"sa_func\ycbcr2rgb_core.obj" 
+"sa_func\ycbcr2rgb_col.obj" 
 
 SA_DEPS__QUOTED += \
 "sa_func\cal_abcd.pp" \
@@ -41,7 +41,7 @@ SA_DEPS__QUOTED += \
 "sa_func\float2int.pp" \
 "sa_func\single_test.pp" \
 "sa_func\ufloat2int.pp" \
-"sa_func\ycbcr2rgb_core.pp" 
+"sa_func\ycbcr2rgb_col.pp" 
 
 SA_SRCS__QUOTED += \
 "../sa_func/cal_abcd.sa" \
@@ -49,6 +49,6 @@ SA_SRCS__QUOTED += \
 "../sa_func/float2int.sa" \
 "../sa_func/single_test.sa" \
 "../sa_func/ufloat2int.sa" \
-"../sa_func/ycbcr2rgb_core.sa" 
+"../sa_func/ycbcr2rgb_col.sa" 
 
 

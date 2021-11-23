@@ -17,10 +17,6 @@ uint8_t ycrbr2rgb(const char *img_path, const char *save_path)
 	int32_t src_height, src_width, equal_width;
 	int32_t offset_address, offset_width, equal_offset_address;
 	int32_t i;
-	int32_t j, j_3;
-	float_t* ycrcb_kernel_f;
-	int16_t* ycrcb_kernel_i;
-	uint8_t y,cr,cb, r,g,b;
 	/* bgr bgr brg */
 	uint8_t *src_data;
 	FILE *in_ptr = fopen(img_path, "rb");
@@ -63,31 +59,7 @@ uint8_t ycrbr2rgb(const char *img_path, const char *save_path)
 				printf("process row (%d/%d)\n", i, src_height);
 			}
 			get_row_data(in_ptr, src_data, i, src_height, src_width,24);
-
-			//ycbcr2rgb_core(src_data,dst_data,ycrcb_kernel_i,src_width,8);
-			 for(j=src_width-1;j>=0;j--)
-			 {
-			 	j_3 = j * 3;
-			 	cr = *(src_data+j_3);
-			 	cb = *(src_data+j_3+1);
-			 	y = *(src_data+j_3+2);
-//
-			 	ycbcr2rgb_core(y,cb,cr,&r,&g,&b);
-//			 	if(r==255||g==255||b==255)
-//			 	{
-//			 		printf("rgb(%d,%d,%d)<-",(uint8_t)(1.164*y+1.402*(cr-128)),
-//			 					 				 	(uint8_t)(1.164*y-0.344*(cb-128)-0.714*(cr-128)),
-//			 					 				 	(uint8_t)(1.164*y+1.772*(cb-128)));
-//			 		printf("(%d,%d,%d)->(%d,%d,%d)\n",y,cb,cr,r,g,b);
-//			 	}
-
-			 	*(src_data+j_3+2)=r;
-			 	*(src_data+j_3+1)=g;
-			 	*(src_data+j_3)  =b;
-//			 	*(dst_data+j_3)=1.164*y+1.772*(cb-128);//b
-//			 	*(dst_data+j_3+1)=1.164*y-0.344*(cb-128)-0.714*(cr-128);//g
-//			 	*(dst_data+j_3+2)= 1.164*y+1.402*(cr-128);//r
-			 }
+			ycbcr2rgb_col(src_data,src_width);
 			write_row_data(out_ptr,src_data,offset_width);
 		}
 		free(src_data);

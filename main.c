@@ -35,12 +35,4 @@ int main(void)
 	{
 		printf("Unknown error!\n");
 	}
-//	int i;
-//	float_t* data_ptr =(float_t*)malloc(sizeof(float_t)*9);
-//	int16_t* data_i = (int16_t*)malloc(sizeof(int16_t)*9);
-//	*(data_ptr)=1.164;*(data_ptr+1)=0;*(data_ptr+2)=1.402;
-//	*(data_ptr+3)=1.164;*(data_ptr+4)=-0.344;*(data_ptr+5)=-0.714;
-//	*(data_ptr+6)=1.164;*(data_ptr+7)=1.772;*(data_ptr+8)=0;
-//	for(i=0;i<9;i++)
-//		printf("%d\n",float2int(*(data_ptr+i),8));
 }

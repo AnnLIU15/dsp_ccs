@@ -1,17 +1,17 @@
 ******************************************************************************
                TMS320C6x Linker PC v7.4.4                      
 ******************************************************************************
->> Linked Mon Nov 22 23:51:46 2021
+>> Linked Tue Nov 23 09:05:30 2021
 
 OUTPUT FILE NAME:   <bmp.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 0000ab40
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000a900
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  IRAM                  00000000   00040000  0000caa4  0003355c  RWIX
+  IRAM                  00000000   00040000  0000c83c  000337c4  RWIX
   EMIFA_CS0             80000000   10000000  00000000  10000000  RWIX
   EMIFA_CS1             90000000   10000000  00000000  10000000  RWIX
   EMIFA_CS2             a0000000   10000000  00000000  10000000  RWIX
@@ -23,125 +23,125 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.text      0    00000000    0000aec0     
-                  00000000    00001660     func.obj (.text)
-                  00001660    00000620     rts6400.lib : _printfi.obj (.text:__getarg_diouxp)
-                  00001c80    000005c0                 : divd.obj (.text:__divd)
-                  00002240    00000580                 : fwrite.obj (.text:_fwrite)
-                  000027c0    000004e0                 : _printfi.obj (.text:__setfield)
-                  00002ca0    000004c0                 : _printfi.obj (.text:__printfi)
-                  00003160    00000420                 : fputs.obj (.text:_fputs)
-                  00003580    00000400                 : _printfi.obj (.text:_fcvt)
-                  00003980    000003e0                 : _printfi.obj (.text:__pproc_fge)
-                  00003d60    000003c0                 : _printfi.obj (.text:_ecvt)
-                  00004120    00000380                 : addf.obj (.text:__addf)
-                  000044a0    00000320                 : _printfi.obj (.text:__pconv_e)
-                  000047c0    00000300                 : _printfi.obj (.text:__pproc_fwp)
-                  00004ac0    00000300                 : fread.obj (.text:_fread)
-                  00004dc0    000002e0                 : memory.obj (.text:_free)
-                  000050a0    000002c0                 : imath64.obj (.text:__divull)
-                  00005360    000002a0                 : _printfi.obj (.text:__pproc_diouxp)
-                  00005600    00000280                 : mpyd.obj (.text:__mpyd)
-                  00005880    00000260                 : frcaddd.obj (.text:__frcaddd)
-                  00005ae0    00000260                 : _printfi.obj (.text:__pproc_str)
-                  00005d40    00000260                 : fputc.obj (.text:_fputc)
-                  00005fa0    00000240                 : addd.obj (.text:__addd)
-                  000061e0    00000240                 : mpyf.obj (.text:__mpyf)
-                  00006420    00000240                 : _printfi.obj (.text:__pconv_g)
-                  00006660    00000240                 : setvbuf.obj (.text:_setvbuf)
-                  000068a0    00000200                 : trgdrv.obj (.text:_HOSTrename)
-                  00006aa0    00000200                 : _printfi.obj (.text:__mcpy)
-                  00006ca0    000001e0                 : fopen.obj (.text:__openfile)
-                  00006e80    000001c0                 : memory.obj (.text:_malloc)
-                  00007040    000001c0                 : lowlev.obj (.text:_open)
-                  00007200    000001a0                 : imath40.obj (.text:__divul)
-                  000073a0    00000180                 : fseek.obj (.text:_fseek)
-                  00007520    00000180                 : lowlev.obj (.text:_getdevice)
-                  000076a0    00000160                 : _printfi.obj (.text:__ltostr)
-                  00007800    00000160                 : _printfi.obj (.text:__pproc_fflags)
-                  00007960    00000140                 : fclose.obj (.text:__closefile)
-                  00007aa0    00000140                 : fopen.obj (.text:__search_fp)
-                  00007be0    00000120                 : trgdrv.obj (.text:_HOSTlseek)
-                  00007d00    00000120                 : _bufread.obj (.text:__buff_read)
-                  00007e20    00000120                 : frcmpyd.obj (.text:__frcmpyd)
-                  00007f40    00000120                 : _io_perm.obj (.text:__wrt_ok)
-                  00008060    00000120                 : atoi.obj (.text:_atoi)
-                  00008180    00000120     cal_bilinear.obj (.text)
-                  000082a0    00000100     rts6400.lib : trgdrv.obj (.text:_HOSTopen)
-                  000083a0    00000100                 : trgdrv.obj (.text:_HOSTread)
-                  000084a0    00000100                 : trgdrv.obj (.text:_HOSTwrite)
-                  000085a0    00000100                 : frcmpyd_div.obj (.text:__frcmpyd_div)
-                  000086a0    00000100                 : lowlev.obj (.text:_close)
-                  000087a0    00000100                 : ltoa.obj (.text:_ltoa)
-                  000088a0    00000100                 : memset.obj (.text:_memset)
-                  000089a0    000000e0                 : trgdrv.obj (.text:_HOSTunlink)
-                  00008a80    000000e0                 : autoinit.obj (.text:__auto_init)
-                  00008b60    000000e0                 : cmpd.obj (.text:__cmpd)
-                  00008c40    000000e0                 : _printfi.obj (.text:__div)
-                  00008d20    000000e0                 : fflush.obj (.text:__doflush)
-                  00008e00    000000e0                 : _printfi.obj (.text:__pconv_f)
-                  00008ee0    000000e0                 : memcpy64.obj (.text:_memcpy)
-                  00008fc0    000000e0                 : memory.obj (.text:_mremove)
-                  000090a0    000000e0                 : printf.obj (.text:_printf)
-                  00009180    000000e0     cal_abcd.obj (.text)
-                  00009260    000000c0     rts6400.lib : trgdrv.obj (.text:_HOSTclose)
-                  00009320    000000c0                 : fopen.obj (.text:__cleanup)
-                  000093e0    000000c0                 : cvtdf.obj (.text:__cvtdf)
-                  000094a0    000000c0                 : divu.obj (.text:__divu)
-                  00009560    000000c0                 : _printfi.obj (.text:__ecpy)
-                  00009620    000000c0                 : _printfi.obj (.text:__fcpy)
-                  000096e0    000000c0                 : _io_perm.obj (.text:__rd_ok)
-                  000097a0    000000c0                 : remi.obj (.text:__remi)
-                  00009860    000000c0                 : exit.obj (.text:_exit)
-                  00009920    000000c0                 : lowlev.obj (.text:_lseek)
-                  000099e0    000000c0                 : memory.obj (.text:_minsert)
-                  00009aa0    000000c0                 : lowlev.obj (.text:_read)
-                  00009b60    000000c0                 : lowlev.obj (.text:_write)
-                  00009c20    000000a0                 : cmpf.obj (.text:__cmpf)
-                  00009cc0    000000a0                 : imath40.obj (.text:__divli)
-                  00009d60    000000a0                 : fixdi.obj (.text:__fixdi)
-                  00009e00    000000a0                 : fixdli.obj (.text:__fixdli)
-                  00009ea0    000000a0                 : fixdu.obj (.text:__fixdu)
-                  00009f40    000000a0                 : fixfu.obj (.text:__fixfu)
-                  00009fe0    000000a0                 : renormd.obj (.text:__renormd)
-                  0000a080    000000a0                 : cpy_tbl.obj (.text:_copy_in)
-                  0000a120    000000a0                 : lowlev.obj (.text:_finddevice)
-                  0000a1c0    000000a0                 : lowlev.obj (.text:_tabinit)
-                  0000a260    000000a0     main.obj (.text)
-                  0000a300    000000a0     ycbcr2rgb_core.obj (.text)
-                  0000a3a0    00000080     rts6400.lib : cpp_init.obj (.text:___TI_cpp_init)
-                  0000a420    00000080                 : fixfi.obj (.text:__fixfi)
-                  0000a4a0    00000080                 : fltlid.obj (.text:__fltlid)
-                  0000a520    00000080                 : llshift.obj (.text:__llshl)
-                  0000a5a0    00000080                 : mpyll.obj (.text:__mpyll)
-                  0000a620    00000080                 : fclose.obj (.text:_fclose)
-                  0000a6a0    00000080                 : fopen.obj (.text:_fopen)
-                  0000a720    00000080                 : memccpy.obj (.text:_memccpy)
-                  0000a7a0    00000080                 : trgmsg.obj (.text:_readmsg)
-                  0000a820    00000080                 : lowlev.obj (.text:_unlink)
-                  0000a8a0    00000060                 : cvtfd.obj (.text:__cvtfd)
-                  0000a900    00000060                 : fltid.obj (.text:__fltid)
-                  0000a960    00000060                 : fltif.obj (.text:__fltif)
-                  0000a9c0    00000060                 : frcmpyf.obj (.text:__frcmpyf)
-                  0000aa20    00000060                 : llshift.obj (.text:__llshru)
-                  0000aa80    00000060                 : imath40.obj (.text:__remli)
-                  0000aae0    00000060                 : imath64.obj (.text:__subcull)
-                  0000ab40    00000060                 : boot.obj (.text:_c_int00)
-                  0000aba0    00000060                 : trgmsg.obj (.text:_writemsg)
-                  0000ac00    00000040                 : isinf.obj (.text:___isinf)
-                  0000ac40    00000040                 : _printfi.obj (.text:___isnan)
-                  0000ac80    00000040                 : args_main.obj (.text:__args_main)
-                  0000acc0    00000040                 : fltud.obj (.text:__fltud)
-                  0000ad00    00000040                 : negd.obj (.text:__negd)
-                  0000ad40    00000040                 : subd.obj (.text:__subd)
-                  0000ad80    00000040                 : subf.obj (.text:__subf)
-                  0000adc0    00000040     ufloat2int.obj (.text)
-                  0000ae00    00000020     rts6400.lib : negll.obj (.text:__negll)
-                  0000ae20    00000020                 : _lock.obj (.text:__nop)
-                  0000ae40    00000020                 : printf.obj (.text:__outc)
-                  0000ae60    00000020                 : printf.obj (.text:__outs)
-                  0000ae80    00000020                 : exit.obj (.text:_abort)
-                  0000aea0    00000020                 : remove.obj (.text:_remove)
+.text      0    00000000    0000ac80     
+                  00000000    000013e0     func.obj (.text)
+                  000013e0    00000620     rts6400.lib : _printfi.obj (.text:__getarg_diouxp)
+                  00001a00    000005c0                 : divd.obj (.text:__divd)
+                  00001fc0    00000580                 : fwrite.obj (.text:_fwrite)
+                  00002540    000004e0                 : _printfi.obj (.text:__setfield)
+                  00002a20    000004c0                 : _printfi.obj (.text:__printfi)
+                  00002ee0    00000420                 : fputs.obj (.text:_fputs)
+                  00003300    00000400                 : _printfi.obj (.text:_fcvt)
+                  00003700    000003e0                 : _printfi.obj (.text:__pproc_fge)
+                  00003ae0    000003c0                 : _printfi.obj (.text:_ecvt)
+                  00003ea0    00000380                 : addf.obj (.text:__addf)
+                  00004220    00000320                 : _printfi.obj (.text:__pconv_e)
+                  00004540    00000300                 : _printfi.obj (.text:__pproc_fwp)
+                  00004840    00000300                 : fread.obj (.text:_fread)
+                  00004b40    000002e0                 : memory.obj (.text:_free)
+                  00004e20    000002c0                 : imath64.obj (.text:__divull)
+                  000050e0    000002a0                 : _printfi.obj (.text:__pproc_diouxp)
+                  00005380    00000280                 : mpyd.obj (.text:__mpyd)
+                  00005600    00000260                 : frcaddd.obj (.text:__frcaddd)
+                  00005860    00000260                 : _printfi.obj (.text:__pproc_str)
+                  00005ac0    00000260                 : fputc.obj (.text:_fputc)
+                  00005d20    00000240                 : addd.obj (.text:__addd)
+                  00005f60    00000240                 : mpyf.obj (.text:__mpyf)
+                  000061a0    00000240                 : _printfi.obj (.text:__pconv_g)
+                  000063e0    00000240                 : setvbuf.obj (.text:_setvbuf)
+                  00006620    00000200                 : trgdrv.obj (.text:_HOSTrename)
+                  00006820    00000200                 : _printfi.obj (.text:__mcpy)
+                  00006a20    000001e0                 : fopen.obj (.text:__openfile)
+                  00006c00    000001c0                 : memory.obj (.text:_malloc)
+                  00006dc0    000001c0                 : lowlev.obj (.text:_open)
+                  00006f80    000001a0                 : imath40.obj (.text:__divul)
+                  00007120    00000180                 : fseek.obj (.text:_fseek)
+                  000072a0    00000180                 : lowlev.obj (.text:_getdevice)
+                  00007420    00000160                 : _printfi.obj (.text:__ltostr)
+                  00007580    00000160                 : _printfi.obj (.text:__pproc_fflags)
+                  000076e0    00000140                 : fclose.obj (.text:__closefile)
+                  00007820    00000140                 : fopen.obj (.text:__search_fp)
+                  00007960    00000120                 : trgdrv.obj (.text:_HOSTlseek)
+                  00007a80    00000120                 : _bufread.obj (.text:__buff_read)
+                  00007ba0    00000120                 : frcmpyd.obj (.text:__frcmpyd)
+                  00007cc0    00000120                 : _io_perm.obj (.text:__wrt_ok)
+                  00007de0    00000120                 : atoi.obj (.text:_atoi)
+                  00007f00    00000120     cal_bilinear.obj (.text)
+                  00008020    00000100     rts6400.lib : trgdrv.obj (.text:_HOSTopen)
+                  00008120    00000100                 : trgdrv.obj (.text:_HOSTread)
+                  00008220    00000100                 : trgdrv.obj (.text:_HOSTwrite)
+                  00008320    00000100                 : frcmpyd_div.obj (.text:__frcmpyd_div)
+                  00008420    00000100                 : lowlev.obj (.text:_close)
+                  00008520    00000100                 : ltoa.obj (.text:_ltoa)
+                  00008620    00000100                 : memset.obj (.text:_memset)
+                  00008720    000000e0                 : trgdrv.obj (.text:_HOSTunlink)
+                  00008800    000000e0                 : autoinit.obj (.text:__auto_init)
+                  000088e0    000000e0                 : cmpd.obj (.text:__cmpd)
+                  000089c0    000000e0                 : _printfi.obj (.text:__div)
+                  00008aa0    000000e0                 : fflush.obj (.text:__doflush)
+                  00008b80    000000e0                 : _printfi.obj (.text:__pconv_f)
+                  00008c60    000000e0                 : memcpy64.obj (.text:_memcpy)
+                  00008d40    000000e0                 : memory.obj (.text:_mremove)
+                  00008e20    000000e0                 : printf.obj (.text:_printf)
+                  00008f00    000000e0     cal_abcd.obj (.text)
+                  00008fe0    000000e0     ycbcr2rgb_col.obj (.text)
+                  000090c0    000000c0     rts6400.lib : trgdrv.obj (.text:_HOSTclose)
+                  00009180    000000c0                 : fopen.obj (.text:__cleanup)
+                  00009240    000000c0                 : cvtdf.obj (.text:__cvtdf)
+                  00009300    000000c0                 : divu.obj (.text:__divu)
+                  000093c0    000000c0                 : _printfi.obj (.text:__ecpy)
+                  00009480    000000c0                 : _printfi.obj (.text:__fcpy)
+                  00009540    000000c0                 : _io_perm.obj (.text:__rd_ok)
+                  00009600    000000c0                 : remi.obj (.text:__remi)
+                  000096c0    000000c0                 : exit.obj (.text:_exit)
+                  00009780    000000c0                 : lowlev.obj (.text:_lseek)
+                  00009840    000000c0                 : memory.obj (.text:_minsert)
+                  00009900    000000c0                 : lowlev.obj (.text:_read)
+                  000099c0    000000c0                 : lowlev.obj (.text:_write)
+                  00009a80    000000a0                 : cmpf.obj (.text:__cmpf)
+                  00009b20    000000a0                 : imath40.obj (.text:__divli)
+                  00009bc0    000000a0                 : fixdi.obj (.text:__fixdi)
+                  00009c60    000000a0                 : fixdli.obj (.text:__fixdli)
+                  00009d00    000000a0                 : fixdu.obj (.text:__fixdu)
+                  00009da0    000000a0                 : fixfu.obj (.text:__fixfu)
+                  00009e40    000000a0                 : renormd.obj (.text:__renormd)
+                  00009ee0    000000a0                 : cpy_tbl.obj (.text:_copy_in)
+                  00009f80    000000a0                 : lowlev.obj (.text:_finddevice)
+                  0000a020    000000a0                 : lowlev.obj (.text:_tabinit)
+                  0000a0c0    000000a0     main.obj (.text)
+                  0000a160    00000080     rts6400.lib : cpp_init.obj (.text:___TI_cpp_init)
+                  0000a1e0    00000080                 : fixfi.obj (.text:__fixfi)
+                  0000a260    00000080                 : fltlid.obj (.text:__fltlid)
+                  0000a2e0    00000080                 : llshift.obj (.text:__llshl)
+                  0000a360    00000080                 : mpyll.obj (.text:__mpyll)
+                  0000a3e0    00000080                 : fclose.obj (.text:_fclose)
+                  0000a460    00000080                 : fopen.obj (.text:_fopen)
+                  0000a4e0    00000080                 : memccpy.obj (.text:_memccpy)
+                  0000a560    00000080                 : trgmsg.obj (.text:_readmsg)
+                  0000a5e0    00000080                 : lowlev.obj (.text:_unlink)
+                  0000a660    00000060                 : cvtfd.obj (.text:__cvtfd)
+                  0000a6c0    00000060                 : fltid.obj (.text:__fltid)
+                  0000a720    00000060                 : fltif.obj (.text:__fltif)
+                  0000a780    00000060                 : frcmpyf.obj (.text:__frcmpyf)
+                  0000a7e0    00000060                 : llshift.obj (.text:__llshru)
+                  0000a840    00000060                 : imath40.obj (.text:__remli)
+                  0000a8a0    00000060                 : imath64.obj (.text:__subcull)
+                  0000a900    00000060                 : boot.obj (.text:_c_int00)
+                  0000a960    00000060                 : trgmsg.obj (.text:_writemsg)
+                  0000a9c0    00000040                 : isinf.obj (.text:___isinf)
+                  0000aa00    00000040                 : _printfi.obj (.text:___isnan)
+                  0000aa40    00000040                 : args_main.obj (.text:__args_main)
+                  0000aa80    00000040                 : fltud.obj (.text:__fltud)
+                  0000aac0    00000040                 : negd.obj (.text:__negd)
+                  0000ab00    00000040                 : subd.obj (.text:__subd)
+                  0000ab40    00000040                 : subf.obj (.text:__subf)
+                  0000ab80    00000040     ufloat2int.obj (.text)
+                  0000abc0    00000020     rts6400.lib : negll.obj (.text:__negll)
+                  0000abe0    00000020                 : _lock.obj (.text:__nop)
+                  0000ac00    00000020                 : printf.obj (.text:__outc)
+                  0000ac20    00000020                 : printf.obj (.text:__outs)
+                  0000ac40    00000020                 : exit.obj (.text:_abort)
+                  0000ac60    00000020                 : remove.obj (.text:_remove)
 
 .bss       0    00000000    00000000     UNINITIALIZED
 
@@ -149,50 +149,50 @@ section   page    origin      length       input sections
 
 .pinit     0    00000000    00000000     UNINITIALIZED
 
-.stack     0    0000aec0    00000800     UNINITIALIZED
-                  0000aec0    00000008     rts6400.lib : boot.obj (.stack)
-                  0000aec8    000007f8     --HOLE--
+.stack     0    0000ac80    00000800     UNINITIALIZED
+                  0000ac80    00000008     rts6400.lib : boot.obj (.stack)
+                  0000ac88    000007f8     --HOLE--
 
-.sysmem    0    0000b6c0    00000800     UNINITIALIZED
-                  0000b6c0    00000008     rts6400.lib : memory.obj (.sysmem)
-                  0000b6c8    000007f8     --HOLE--
+.sysmem    0    0000b480    00000800     UNINITIALIZED
+                  0000b480    00000008     rts6400.lib : memory.obj (.sysmem)
+                  0000b488    000007f8     --HOLE--
 
-.const     0    0000bec0    00000508     
-                  0000bec0    00000340     func.obj (.const:.string)
-                  0000c200    00000101     rts6400.lib : ctype.obj (.const:.string:__ctypes_)
-                  0000c301    00000002                 : fputs.obj (.const:.string)
-                  0000c303    00000001     --HOLE-- [fill = 0]
-                  0000c304    00000094     main.obj (.const:.string)
-                  0000c398    00000023     rts6400.lib : _printfi.obj (.const:.string)
-                  0000c3bb    00000005     --HOLE-- [fill = 0]
-                  0000c3c0    00000008                 : divd.obj (.const:.string:_initial_approx$1)
+.const     0    0000bc80    000004e0     
+                  0000bc80    00000318     func.obj (.const:.string)
+                  0000bf98    00000101     rts6400.lib : ctype.obj (.const:.string:__ctypes_)
+                  0000c099    00000002                 : fputs.obj (.const:.string)
+                  0000c09b    00000001     --HOLE-- [fill = 0]
+                  0000c09c    00000094     main.obj (.const:.string)
+                  0000c130    00000023     rts6400.lib : _printfi.obj (.const:.string)
+                  0000c153    00000005     --HOLE-- [fill = 0]
+                  0000c158    00000008                 : divd.obj (.const:.string:_initial_approx$1)
 
-.far       0    0000c3c8    00000468     UNINITIALIZED
-                  0000c3c8    00000324     rts6400.lib : defs.obj (.far)
-                  0000c6ec    00000004                 : fopen.obj (.far)
-                  0000c6f0    0000011c                 : lowlev.obj (.far)
-                  0000c80c    0000000c                 : exit.obj (.far)
-                  0000c818    00000008                 : _lock.obj (.far)
-                  0000c820    00000008                 : memory.obj (.far)
-                  0000c828    00000008                 : trgdrv.obj (.far)
+.far       0    0000c160    00000468     UNINITIALIZED
+                  0000c160    00000324     rts6400.lib : defs.obj (.far)
+                  0000c484    00000004                 : fopen.obj (.far)
+                  0000c488    0000011c                 : lowlev.obj (.far)
+                  0000c5a4    0000000c                 : exit.obj (.far)
+                  0000c5b0    00000008                 : _lock.obj (.far)
+                  0000c5b8    00000008                 : memory.obj (.far)
+                  0000c5c0    00000008                 : trgdrv.obj (.far)
 
-.cinit     0    0000c830    00000154     
-                  0000c830    0000005c     rts6400.lib : defs.obj (.cinit)
-                  0000c88c    00000004     --HOLE-- [fill = 0]
-                  0000c890    0000005c                 : lowlev.obj (.cinit)
-                  0000c8ec    00000004     --HOLE-- [fill = 0]
-                  0000c8f0    0000002c                 : exit.obj (.cinit)
-                  0000c91c    00000004     --HOLE-- [fill = 0]
-                  0000c920    0000002c                 : memory.obj (.cinit)
-                  0000c94c    00000004     --HOLE-- [fill = 0]
-                  0000c950    0000001c                 : _lock.obj (.cinit)
-                  0000c96c    00000004     --HOLE-- [fill = 0]
-                  0000c970    0000000c                 : fopen.obj (.cinit)
-                  0000c97c    00000004     --HOLE-- [fill = 0]
-                  0000c980    00000004     (.pad.cinit) [fill = 0]
+.cinit     0    0000c5c8    00000154     
+                  0000c5c8    0000005c     rts6400.lib : defs.obj (.cinit)
+                  0000c624    00000004     --HOLE-- [fill = 0]
+                  0000c628    0000005c                 : lowlev.obj (.cinit)
+                  0000c684    00000004     --HOLE-- [fill = 0]
+                  0000c688    0000002c                 : exit.obj (.cinit)
+                  0000c6b4    00000004     --HOLE-- [fill = 0]
+                  0000c6b8    0000002c                 : memory.obj (.cinit)
+                  0000c6e4    00000004     --HOLE-- [fill = 0]
+                  0000c6e8    0000001c                 : _lock.obj (.cinit)
+                  0000c704    00000004     --HOLE-- [fill = 0]
+                  0000c708    0000000c                 : fopen.obj (.cinit)
+                  0000c714    00000004     --HOLE-- [fill = 0]
+                  0000c718    00000004     (.pad.cinit) [fill = 0]
 
-.cio       0    0000c988    00000120     UNINITIALIZED
-                  0000c988    00000120     rts6400.lib : trgmsg.obj (.cio)
+.cio       0    0000c720    00000120     UNINITIALIZED
+                  0000c720    00000120     rts6400.lib : trgmsg.obj (.cio)
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
@@ -203,144 +203,144 @@ address    name
 00000000   .bss
 00000000   .data
 00000000   .text
-0000ae80   C$$EXIT
-0000abf8   C$$IO$$
-00009260   _HOSTclose
-00007be0   _HOSTlseek
-000082a0   _HOSTopen
-000083a0   _HOSTread
-000068a0   _HOSTrename
-000089a0   _HOSTunlink
-000084a0   _HOSTwrite
-0000c988   __CIOBUF_
-0000b6c0   __STACK_END
+0000ac40   C$$EXIT
+0000a9b8   C$$IO$$
+000090c0   _HOSTclose
+00007960   _HOSTlseek
+00008020   _HOSTopen
+00008120   _HOSTread
+00006620   _HOSTrename
+00008720   _HOSTunlink
+00008220   _HOSTwrite
+0000c720   __CIOBUF_
+0000b480   __STACK_END
 00000800   __STACK_SIZE
 00000800   __SYSMEM_SIZE
 00000001   __TI_args_main
-0000a3a0   ___TI_cpp_init
-0000c814   ___TI_enable_exit_profile_output
+0000a160   ___TI_cpp_init
+0000c5ac   ___TI_enable_exit_profile_output
 ffffffff   ___TI_pprof_out_hndl
 ffffffff   ___TI_prof_data_size
 ffffffff   ___TI_prof_data_start
 ffffffff   ___binit__
 00000000   ___bss__
 ffffffff   ___c_args__
-0000c830   ___cinit__
+0000c5c8   ___cinit__
 00000000   ___data__
 00000000   ___edata__
 00000000   ___end__
-0000aec0   ___etext__
-0000ac00   ___isinf
+0000ac80   ___etext__
+0000a9c0   ___isinf
 ffffffff   ___pinit__
 00000000   ___text__
-00005fa0   __addd
-00004120   __addf
-0000ac80   __args_main
-00008a80   __auto_init
-00007d00   __buff_read
-000094a0   __c6xabi_divu
-000097a0   __c6xabi_remi
-00009320   __cleanup
-0000c80c   __cleanup_ptr
-00007960   __closefile
-00008b60   __cmpd
-00009c20   __cmpf
-0000c200   __ctypes_
-000093e0   __cvtdf
-0000a8a0   __cvtfd
-00001c80   __divd
-00009cc0   __divli
-000094a0   __divu
-00007200   __divul
-000050a0   __divull
-00008d20   __doflush
-0000c810   __dtors_ptr
-00009d60   __fixdi
-00009e00   __fixdli
-00009ea0   __fixdu
-0000a420   __fixfi
-00009f40   __fixfu
-0000a900   __fltid
-0000a960   __fltif
-0000a4a0   __fltlid
-0000acc0   __fltud
-00005880   __frcaddd
-00007e20   __frcmpyd
-000085a0   __frcmpyd_div
-0000a9c0   __frcmpyf
-0000c6e8   __ft_end
-0000c3c8   __ftable
-0000a520   __llshl
-0000aa20   __llshru
-0000c818   __lock
-00005600   __mpyd
-000061e0   __mpyf
-0000a5a0   __mpyll
-0000ad00   __negd
-0000ae00   __negll
-0000ae20   __nop
-00002ca0   __printfi
-000096e0   __rd_ok
-000097a0   __remi
-0000aa80   __remli
-00009fe0   __renormd
-0000aec0   __stack
-0000aae0   __subcull
-0000ad40   __subd
-0000ad80   __subf
-0000b6c0   __sys_memory
-0000c5a8   __tmpnams
-0000c81c   __unlock
-00007f40   __wrt_ok
-0000ae80   _abort
-00008060   _atoi
-00000ba0   _bilinear_interpolation
-0000ab40   _c_int00
-00009180   _cal_abcd
-00008180   _cal_bilinear
-000086a0   _close
-0000a080   _copy_in
-00009860   _exit
-0000a620   _fclose
-0000a6a0   _fopen
-00005d40   _fputc
-00003160   _fputs
-00004ac0   _fread
-00004dc0   _free
-000073a0   _fseek
-00002240   _fwrite
+00005d20   __addd
+00003ea0   __addf
+0000aa40   __args_main
+00008800   __auto_init
+00007a80   __buff_read
+00009300   __c6xabi_divu
+00009600   __c6xabi_remi
+00009180   __cleanup
+0000c5a4   __cleanup_ptr
+000076e0   __closefile
+000088e0   __cmpd
+00009a80   __cmpf
+0000bf98   __ctypes_
+00009240   __cvtdf
+0000a660   __cvtfd
+00001a00   __divd
+00009b20   __divli
+00009300   __divu
+00006f80   __divul
+00004e20   __divull
+00008aa0   __doflush
+0000c5a8   __dtors_ptr
+00009bc0   __fixdi
+00009c60   __fixdli
+00009d00   __fixdu
+0000a1e0   __fixfi
+00009da0   __fixfu
+0000a6c0   __fltid
+0000a720   __fltif
+0000a260   __fltlid
+0000aa80   __fltud
+00005600   __frcaddd
+00007ba0   __frcmpyd
+00008320   __frcmpyd_div
+0000a780   __frcmpyf
+0000c480   __ft_end
+0000c160   __ftable
+0000a2e0   __llshl
+0000a7e0   __llshru
+0000c5b0   __lock
+00005380   __mpyd
+00005f60   __mpyf
+0000a360   __mpyll
+0000aac0   __negd
+0000abc0   __negll
+0000abe0   __nop
+00002a20   __printfi
+00009540   __rd_ok
+00009600   __remi
+0000a840   __remli
+00009e40   __renormd
+0000ac80   __stack
+0000a8a0   __subcull
+0000ab00   __subd
+0000ab40   __subf
+0000b480   __sys_memory
+0000c340   __tmpnams
+0000c5b4   __unlock
+00007cc0   __wrt_ok
+0000ac40   _abort
+00007de0   _atoi
+00000920   _bilinear_interpolation
+0000a900   _c_int00
+00008f00   _cal_abcd
+00007f00   _cal_bilinear
+00008420   _close
+00009ee0   _copy_in
+000096c0   _exit
+0000a3e0   _fclose
+0000a460   _fopen
+00005ac0   _fputc
+00002ee0   _fputs
+00004840   _fread
+00004b40   _free
+00007120   _fseek
+00001fc0   _fwrite
 00000290   _get_header_info
 00000444   _get_row_data
-00009920   _lseek
-000087a0   _ltoa
-0000a260   _main
-00006e80   _malloc
-0000a720   _memccpy
-00008ee0   _memcpy
-000088a0   _memset
-00007040   _open
-000090a0   _printf
-00005d40   _putc
-00009aa0   _read
-0000a7a0   _readmsg
-0000aea0   _remove
-00006660   _setvbuf
+00009780   _lseek
+00008520   _ltoa
+0000a0c0   _main
+00006c00   _malloc
+0000a4e0   _memccpy
+00008c60   _memcpy
+00008620   _memset
+00006dc0   _open
+00008e20   _printf
+00005ac0   _putc
+00009900   _read
+0000a560   _readmsg
+0000ac60   _remove
+000063e0   _setvbuf
 00000000   _show_info
-0000adc0   _ufloat2int
-0000a820   _unlink
-00009b60   _write
-00000b24   _write_color_palette
+0000ab80   _ufloat2int
+0000a5e0   _unlink
+000099c0   _write
+000008a4   _write_color_palette
 00000308   _write_header_info
 00000528   _write_row_data
-00000ad4   _write_ycrcb_k
-0000aba0   _writemsg
-0000a300   _ycbcr2rgb_core
+00000854   _write_ycrcb_k
+0000a960   _writemsg
+00008fe0   _ycbcr2rgb_col
 00000550   _ycrbr2rgb
 ffffffff   binit
-0000c830   cinit
+0000c5c8   cinit
 00000000   edata
 00000000   end
-0000aec0   etext
+0000ac80   etext
 ffffffff   pinit
 
 
@@ -368,121 +368,121 @@ address    name
 00000550   _ycrbr2rgb
 00000800   __STACK_SIZE
 00000800   __SYSMEM_SIZE
-00000ad4   _write_ycrcb_k
-00000b24   _write_color_palette
-00000ba0   _bilinear_interpolation
-00001c80   __divd
-00002240   _fwrite
-00002ca0   __printfi
-00003160   _fputs
-00004120   __addf
-00004ac0   _fread
-00004dc0   _free
-000050a0   __divull
-00005600   __mpyd
-00005880   __frcaddd
-00005d40   _fputc
-00005d40   _putc
-00005fa0   __addd
-000061e0   __mpyf
-00006660   _setvbuf
-000068a0   _HOSTrename
-00006e80   _malloc
-00007040   _open
-00007200   __divul
-000073a0   _fseek
-00007960   __closefile
-00007be0   _HOSTlseek
-00007d00   __buff_read
-00007e20   __frcmpyd
-00007f40   __wrt_ok
-00008060   _atoi
-00008180   _cal_bilinear
-000082a0   _HOSTopen
-000083a0   _HOSTread
-000084a0   _HOSTwrite
-000085a0   __frcmpyd_div
-000086a0   _close
-000087a0   _ltoa
-000088a0   _memset
-000089a0   _HOSTunlink
-00008a80   __auto_init
-00008b60   __cmpd
-00008d20   __doflush
-00008ee0   _memcpy
-000090a0   _printf
-00009180   _cal_abcd
-00009260   _HOSTclose
-00009320   __cleanup
-000093e0   __cvtdf
-000094a0   __c6xabi_divu
-000094a0   __divu
-000096e0   __rd_ok
-000097a0   __c6xabi_remi
-000097a0   __remi
-00009860   _exit
-00009920   _lseek
-00009aa0   _read
-00009b60   _write
-00009c20   __cmpf
-00009cc0   __divli
-00009d60   __fixdi
-00009e00   __fixdli
-00009ea0   __fixdu
-00009f40   __fixfu
-00009fe0   __renormd
-0000a080   _copy_in
-0000a260   _main
-0000a300   _ycbcr2rgb_core
-0000a3a0   ___TI_cpp_init
-0000a420   __fixfi
-0000a4a0   __fltlid
-0000a520   __llshl
-0000a5a0   __mpyll
-0000a620   _fclose
-0000a6a0   _fopen
-0000a720   _memccpy
-0000a7a0   _readmsg
-0000a820   _unlink
-0000a8a0   __cvtfd
-0000a900   __fltid
-0000a960   __fltif
-0000a9c0   __frcmpyf
-0000aa20   __llshru
-0000aa80   __remli
-0000aae0   __subcull
-0000ab40   _c_int00
-0000aba0   _writemsg
-0000abf8   C$$IO$$
-0000ac00   ___isinf
-0000ac80   __args_main
-0000acc0   __fltud
-0000ad00   __negd
-0000ad40   __subd
-0000ad80   __subf
-0000adc0   _ufloat2int
-0000ae00   __negll
-0000ae20   __nop
-0000ae80   C$$EXIT
-0000ae80   _abort
-0000aea0   _remove
-0000aec0   ___etext__
-0000aec0   __stack
-0000aec0   etext
-0000b6c0   __STACK_END
-0000b6c0   __sys_memory
-0000c200   __ctypes_
-0000c3c8   __ftable
-0000c5a8   __tmpnams
-0000c6e8   __ft_end
-0000c80c   __cleanup_ptr
-0000c810   __dtors_ptr
-0000c814   ___TI_enable_exit_profile_output
-0000c818   __lock
-0000c81c   __unlock
-0000c830   ___cinit__
-0000c830   cinit
-0000c988   __CIOBUF_
+00000854   _write_ycrcb_k
+000008a4   _write_color_palette
+00000920   _bilinear_interpolation
+00001a00   __divd
+00001fc0   _fwrite
+00002a20   __printfi
+00002ee0   _fputs
+00003ea0   __addf
+00004840   _fread
+00004b40   _free
+00004e20   __divull
+00005380   __mpyd
+00005600   __frcaddd
+00005ac0   _fputc
+00005ac0   _putc
+00005d20   __addd
+00005f60   __mpyf
+000063e0   _setvbuf
+00006620   _HOSTrename
+00006c00   _malloc
+00006dc0   _open
+00006f80   __divul
+00007120   _fseek
+000076e0   __closefile
+00007960   _HOSTlseek
+00007a80   __buff_read
+00007ba0   __frcmpyd
+00007cc0   __wrt_ok
+00007de0   _atoi
+00007f00   _cal_bilinear
+00008020   _HOSTopen
+00008120   _HOSTread
+00008220   _HOSTwrite
+00008320   __frcmpyd_div
+00008420   _close
+00008520   _ltoa
+00008620   _memset
+00008720   _HOSTunlink
+00008800   __auto_init
+000088e0   __cmpd
+00008aa0   __doflush
+00008c60   _memcpy
+00008e20   _printf
+00008f00   _cal_abcd
+00008fe0   _ycbcr2rgb_col
+000090c0   _HOSTclose
+00009180   __cleanup
+00009240   __cvtdf
+00009300   __c6xabi_divu
+00009300   __divu
+00009540   __rd_ok
+00009600   __c6xabi_remi
+00009600   __remi
+000096c0   _exit
+00009780   _lseek
+00009900   _read
+000099c0   _write
+00009a80   __cmpf
+00009b20   __divli
+00009bc0   __fixdi
+00009c60   __fixdli
+00009d00   __fixdu
+00009da0   __fixfu
+00009e40   __renormd
+00009ee0   _copy_in
+0000a0c0   _main
+0000a160   ___TI_cpp_init
+0000a1e0   __fixfi
+0000a260   __fltlid
+0000a2e0   __llshl
+0000a360   __mpyll
+0000a3e0   _fclose
+0000a460   _fopen
+0000a4e0   _memccpy
+0000a560   _readmsg
+0000a5e0   _unlink
+0000a660   __cvtfd
+0000a6c0   __fltid
+0000a720   __fltif
+0000a780   __frcmpyf
+0000a7e0   __llshru
+0000a840   __remli
+0000a8a0   __subcull
+0000a900   _c_int00
+0000a960   _writemsg
+0000a9b8   C$$IO$$
+0000a9c0   ___isinf
+0000aa40   __args_main
+0000aa80   __fltud
+0000aac0   __negd
+0000ab00   __subd
+0000ab40   __subf
+0000ab80   _ufloat2int
+0000abc0   __negll
+0000abe0   __nop
+0000ac40   C$$EXIT
+0000ac40   _abort
+0000ac60   _remove
+0000ac80   ___etext__
+0000ac80   __stack
+0000ac80   etext
+0000b480   __STACK_END
+0000b480   __sys_memory
+0000bf98   __ctypes_
+0000c160   __ftable
+0000c340   __tmpnams
+0000c480   __ft_end
+0000c5a4   __cleanup_ptr
+0000c5a8   __dtors_ptr
+0000c5ac   ___TI_enable_exit_profile_output
+0000c5b0   __lock
+0000c5b4   __unlock
+0000c5c8   ___cinit__
+0000c5c8   cinit
+0000c720   __CIOBUF_
 ffffffff   ___TI_pprof_out_hndl
 ffffffff   ___TI_prof_data_size
 ffffffff   ___TI_prof_data_start
