@@ -24,13 +24,26 @@ int main(void)
 //	{
 //		printf("Unknown error!\n");
 //	}
-	const char *hw3_in = "../data/ycbcr.bmp";
-	const char *hw3_out = "../output/data4_ycbcr2rgb.bmp";
-	uint8_t success_hw3 = ycrbr2rgb(hw3_in,hw3_out);
-	if (success_hw3 == 0)
-		printf("success_hw3!\n");
-	else if (success_hw3 == 1)
-		printf("It is not BMP file or haven't open file! Please check your input!\n");
+//	const char *hw3_in = "../data/ycbcr.bmp";
+//	const char *hw3_out = "../output/data4_ycbcr2rgb.bmp";
+//	uint8_t success_hw3 = ycrbr2rgb(hw3_in,hw3_out);
+//	if (success_hw3 == 0)
+//		printf("success_hw3!\n");
+//	else if (success_hw3 == 1)
+//		printf("It is not BMP file or haven't open file! Please check your input!\n");
+//	else
+//	{
+//		printf("Unknown error!\n");
+//	}
+	const char *hw4_in = "../data/data.yuv";
+	const char *hw4_out = "../output/data_process.yuv";
+	int16_t* H = get_H_kernel();
+	uint8_t success_hw4 = transfer_arr(hw4_in, hw4_out,352,288,H,0);
+	free(H);
+	if (success_hw4 == 0)
+		printf("success_hw4!\n");
+	else if (success_hw4 == 1)
+		printf("Can't open file! Please check your input!\n");
 	else
 	{
 		printf("Unknown error!\n");

@@ -6,6 +6,94 @@
  */
 #include "../include/func.h"
 
+uint8_t transfer_arr(const char *yuv_path, const char *save_path, const int32_t height, const int32_t width, const int16_t *H, const uint8_t is_sa)
+{
+	int8_t return_val = 0;
+	FILE *in_ptr = fopen(yuv_path, "rb");
+	FILE *out_ptr = fopen(save_path, "wb");
+	printf("0x%x,0x%x\n",in_ptr,out_ptr);
+	const int32_t idx_height = (height >> 2);
+	const int32_t read_data_size = idx_height << 4;
+	const int32_t idx_width = (width >> 2);
+	int32_t i, j, j_4, k, l, m, idx;
+	uint8_t *data = (uint8_t *)malloc(sizeof(uint8_t) * read_data_size);
+	int16_t *out_data = (int16_t *)malloc(sizeof(int16_t) * read_data_size);
+	int16_t *tmp_data  = (int16_t *)malloc(sizeof(int16_t) * 16);
+	if (!in_ptr || !out_ptr)
+	{
+		return_val = 1;
+	}
+	else
+	{
+		for (i = idx_height - 1; i >= 0; i--)
+		{
+			fread(data, sizeof(uint8_t), read_data_size, in_ptr);
+//			for(j=0;j<288;j++)
+//				printf("%d,",*(data  + j));
+//			exit(-1);
+
+			if (i % 5 == 0 || i == 0 || i == idx_height - 1)
+			{
+				printf("process row (%d/%d)\n", i, idx_height);
+			}
+			if (is_sa)
+			{
+			}
+			else
+			{
+				for (j = idx_width - 1; j >= 0; j--)
+				{
+
+					j_4 = j << 2;
+					/* j_4 -> j_4+15 */
+					for (k = 3; k >= 0; k--)
+					{
+						for (l = 3; l >= 0; l--)
+						{
+							idx = (k << 2) + l;
+							*(tmp_data + idx) = 0;
+							for (m = 3; m >= 0; m--)
+								*(tmp_data + idx) += *(H + (k << 2) + m) * *(data + j_4 + l + (m * width) );
+						}
+					}
+					for (k = 3; k >= 0; k--)
+					{
+						for (l = 3; l >= 0; l--)
+						{
+							idx = (k << 2) + l;
+							*(out_data + idx) = 0;
+							for (m = 3; m >= 0; m--)
+								*(out_data + j_4 + idx) += *(tmp_data+ (k << 2) + m) * *(H+ (l<<2)+m);
+						}
+					}
+				}
+			}
+			k = fwrite(data, sizeof(uint8_t), read_data_size, out_ptr);
+			printf("write in:%d\n",k);
+
+		}
+
+	}
+	free(tmp_data);
+	free(data);
+	free(out_data);
+	fclose(in_ptr);
+	fclose(out_ptr);
+	free(in_ptr);
+	free(out_ptr);
+	return return_val;
+}
+
+int16_t *get_H_kernel()
+{
+	int16_t *H = (int16_t *)malloc(sizeof(int16_t) * 16);
+	*(H) = 1;*(H + 1) = 1;*(H + 2) = 1;*(H + 3) = 1;
+	*(H + 4) = 2;*(H + 5) = 1;*(H + 6) = -1;*(H + 7) = -2;
+	*(H + 8) = 1;*(H + 9) = -1;*(H + 10) = -1;*(H + 11) = 1;
+	*(H + 12) = 1;*(H + 13) = -2;*(H + 14) = 2;*(H + 15) = -1;
+	return H;
+}
+
 uint8_t ycrbr2rgb(const char *img_path, const char *save_path)
 {
 	/* ycrbr2rgb
@@ -50,17 +138,17 @@ uint8_t ycrbr2rgb(const char *img_path, const char *save_path)
 		equal_width = src_width * 3;
 		equal_offset_address = offset_address * 3;
 		offset_width = (offset_address == 4) ? equal_width : equal_width + equal_offset_address;
-		src_data = (uint8_t*)malloc(sizeof(uint8_t) * equal_width);
-		for(i = src_height-1;i>=0;i--)
+		src_data = (uint8_t *)malloc(sizeof(uint8_t) * equal_width);
+		for (i = src_height - 1; i >= 0; i--)
 		{
 
 			if (i % 20 == 0 || i == 0 || i == src_height - 1)
 			{
 				printf("process row (%d/%d)\n", i, src_height);
 			}
-			get_row_data(in_ptr, src_data, i, src_height, src_width,24);
-			ycbcr2rgb_col(src_data,src_width);
-			write_row_data(out_ptr,src_data,offset_width);
+			get_row_data(in_ptr, src_data, i, src_height, src_width, 24);
+			ycbcr2rgb_col(src_data, src_width);
+			write_row_data(out_ptr, src_data, offset_width);
 		}
 		free(src_data);
 	}
@@ -70,7 +158,6 @@ uint8_t ycrbr2rgb(const char *img_path, const char *save_path)
 	free(out_ptr);
 	return return_val;
 }
-
 
 uint8_t bilinear_interpolation(const char *img_path, const char *save_path, const float scale_factor, const float times, const int is_sa)
 {
@@ -150,9 +237,9 @@ uint8_t bilinear_interpolation(const char *img_path, const char *save_path, cons
 		{
 			if (i == dst_height - 1)
 			{
-				get_row_data(in_ptr, src_data + src_width, current_row, src_height, src_width,8);
+				get_row_data(in_ptr, src_data + src_width, current_row, src_height, src_width, 8);
 				current_row = current_row - 1;
-				get_row_data(in_ptr, src_data, current_row, src_height, src_width,8);
+				get_row_data(in_ptr, src_data, current_row, src_height, src_width, 8);
 			}
 			else if (current_row - 1 >= ((uint16_t)(times * i)))
 			{
@@ -161,7 +248,7 @@ uint8_t bilinear_interpolation(const char *img_path, const char *save_path, cons
 					*(src_data + src_width + j) = *(src_data + j);
 				}
 				current_row = current_row - 1;
-				get_row_data(in_ptr, src_data, current_row, src_height, src_width,8);
+				get_row_data(in_ptr, src_data, current_row, src_height, src_width, 8);
 			}
 			else
 			{
@@ -201,7 +288,7 @@ uint8_t bilinear_interpolation(const char *img_path, const char *save_path, cons
 				// _cal_bilinear: .cproc src_data, dst_data, src_w, dst_w, u, r_limit, times,q_var
 				cal_bilinear(src_data, dst_data, src_width, dst_width, u, r_limits, times, 8);
 			}
-			write_row_data(out_ptr,dst_data,offset_width);
+			write_row_data(out_ptr, dst_data, offset_width);
 			//fwrite(dst_data, sizeof(uint8_t), offset_width, out_ptr);
 		}
 
@@ -215,7 +302,7 @@ uint8_t bilinear_interpolation(const char *img_path, const char *save_path, cons
 	return return_val;
 }
 
-void get_row_data(FILE *in_ptr, uint8_t *data, const uint32_t row, const uint32_t src_height, const uint32_t src_width,const uint8_t bi_used_cnt)
+void get_row_data(FILE *in_ptr, uint8_t *data, const uint32_t row, const uint32_t src_height, const uint32_t src_width, const uint8_t bi_used_cnt)
 {
 	/* get data from source image
 	 * in_ptr(inout): load file pointer
@@ -231,11 +318,11 @@ void get_row_data(FILE *in_ptr, uint8_t *data, const uint32_t row, const uint32_
 	/* data offset */
 	uint32_t data_offset_begin;
 	int32_t equal_width = src_width;
-	if(8==bi_used_cnt)
+	if (8 == bi_used_cnt)
 	{
 		data_offset_begin = 1078 + (src_height - row - 1) * offset_width;
 	}
-	else if(24==bi_used_cnt)
+	else if (24 == bi_used_cnt)
 	{
 		equal_width = equal_width * 3;
 		data_offset_begin = 54 + (src_height - row - 1) * offset_width * 3;
