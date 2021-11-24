@@ -35,17 +35,4 @@ int main(void)
 //	{
 //		printf("Unknown error!\n");
 //	}
-	const char *hw4_in = "../data/data.yuv";
-	const char *hw4_out = "../output/data_process.yuv";
-	int16_t* H = get_H_kernel();
-	uint8_t success_hw4 = transfer_arr(hw4_in, hw4_out,352,288,H,0);
-	free(H);
-	if (success_hw4 == 0)
-		printf("success_hw4!\n");
-	else if (success_hw4 == 1)
-		printf("Can't open file! Please check your input!\n");
-	else
-	{
-		printf("Unknown error!\n");
-	}
 }
