@@ -27,11 +27,6 @@ void ycbcr2rgb_col(uint8_t *,int32_t);
 
 /* c_function */
 
-/* matrix transfer*/
-uint8_t transfer_arr(const char *yuv_path, const char *save_path,const int32_t height,const int32_t width,const int16_t* H, const uint8_t is_sa);
-
-int16_t* get_H_kernel();
-
 /* ycbcr2rgb */
 uint8_t ycrbr2rgb(const char *img_path, const char *save_path);
 
