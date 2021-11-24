@@ -32,29 +32,4 @@ uint8_t transfer_arr(const char *yuv_path, const char *save_path,const int32_t h
 
 int16_t* get_H_kernel();
 
-/* ycbcr2rgb */
-uint8_t ycrbr2rgb(const char *img_path, const char *save_path);
-
-/* bi_linear interpolation for img */
-uint8_t bilinear_interpolation(const char *img_path, const char *save_path, const float scale_factor, const float times, const int is_sa);
-
-/* get row(height) image data*/
-void get_row_data(FILE *in_ptr, uint8_t *data, const uint32_t row, const uint32_t src_height, const uint32_t src_width,const uint8_t bi_used_cnt);
-
-/* write row(height) image data*/
-void write_row_data(FILE *out_ptr, uint8_t *data, const uint32_t dst_width);
-
-/* write the color palette from input image */
-void write_color_palette(FILE *in_ptr, FILE *out_ptr);
-
-/* get the header information to file */
-void get_header_info(FILE *in_ptr, PBITMAPFILEHEADER file_header_ptr, PBITMAPINFOHEADER info_header_ptr, const uint8_t show_);
-
-/* write the header information to file */
-void write_header_info(FILE *out_ptr, const PBITMAPFILEHEADER file_header_ptr,
-					   const PBITMAPINFOHEADER info_header_ptr, const float_t scale_factor, const uint8_t show_);
-
-/* show the information of header */
-void show_info(const PBITMAPFILEHEADER file_header_ptr, const PBITMAPINFOHEADER info_header_ptr);
-
 #endif /* FUNC_H_ */
