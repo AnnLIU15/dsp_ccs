@@ -17,7 +17,7 @@
 /* c_function */
 
 /* matrix transfer*/
-uint8_t transfer_arr_p(const char* yuv_path, const char* save_path, const int32_t height, const int32_t width);
+uint8_t transfer_arr_p(const char* yuv_path, const char* save_path, const int32_t height, const int32_t width,const uint8_t is_sa);
 
 void mat_mpy4x4(int16_t* data, const int16_t* H);
 

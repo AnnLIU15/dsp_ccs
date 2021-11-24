@@ -7,7 +7,7 @@
 #include "../include/func.h"
 
 
-uint8_t transfer_arr_p(const char* yuv_path, const char* save_path, const int32_t height, const int32_t width)
+uint8_t transfer_arr_p(const char* yuv_path, const char* save_path, const int32_t height, const int32_t width,const uint8_t is_sa)
 {
 	uint8_t return_val = 0;
 	uint8_t get_data;
@@ -27,18 +27,19 @@ uint8_t transfer_arr_p(const char* yuv_path, const char* save_path, const int32_
 			fread(&get_data, sizeof(uint8_t), 1, in_ptr);
 			*(data + (read_data_size - 1 - j)) = get_data;
 		}
-		for (j = idx_height - 1; j >= 0; j--)
+		if(!is_sa)
 		{
-			j_4 = j << 2;
-			get_4x4_data(tmp_data, data, j_4, height);
-			/*if (j == 0)
+			for (j = idx_height - 1; j >= 0; j--)
 			{
-				for (i = 0; i < 16; i++)
-					printf("%d,", *(tmp_data + i));
-				exit(-1);
-			}*/
-			mat_mpy4x4(tmp_data, H);
-			back_4x4_data(data, tmp_data, j_4, height);
+				j_4 = j << 2;
+				get_4x4_data(tmp_data, data, j_4, height);
+				mat_mpy4x4(tmp_data, H);
+				back_4x4_data(data, tmp_data, j_4, height);
+			}
+		}
+		else
+		{
+			printf("using sa");
 		}
 		fwrite(data, sizeof(int16_t), read_data_size, out_ptr);
 	}
