@@ -19,30 +19,37 @@ uint8_t transfer_arr_p(const char* yuv_path, const char* save_path, const int32_
 	int32_t i, j, j_4;
 	int16_t* data = (int16_t*)malloc(sizeof(int16_t) * read_data_size);
 	int16_t* tmp_data = (int16_t*)malloc(sizeof(int16_t) * 16);
+	int16_t* tmp_data_sa = (int16_t*)malloc(sizeof(int16_t) * 16);
 	int16_t* H = get_H_kernel();
 	for (i = idx_width - 1; i >= 0; i--)
 	{
-		for (j = read_data_size - 1; j >= 0; j--)
+		for (j_4 = read_data_size - 1; j_4 >= 0; j_4--)
 		{
 			fread(&get_data, sizeof(uint8_t), 1, in_ptr);
-			*(data + (read_data_size - 1 - j)) = get_data;
+			*(data + (read_data_size - 1 - j_4)) = get_data;
 		}
-		if(!is_sa)
+
+		for (j = idx_height - 1; j >= 0; j--)
 		{
-			for (j = idx_height - 1; j >= 0; j--)
+			j_4 = j << 2;
+			get_4x4_data(tmp_data, data, j_4, height);
+			if(!is_sa)
 			{
-				j_4 = j << 2;
-				get_4x4_data(tmp_data, data, j_4, height);
 				mat_mpy4x4(tmp_data, H);
-				back_4x4_data(data, tmp_data, j_4, height);
 			}
-		}
-		else
-		{
-			printf("using sa");
+			else
+			{
+				mat_process(tmp_data,tmp_data_sa, H);
+			}
+			//mat_process(data,tmp_data, H);
+			back_4x4_data(data, tmp_data, j_4, height);
 		}
 		fwrite(data, sizeof(int16_t), read_data_size, out_ptr);
 	}
+	free(tmp_data_sa);
+	free(tmp_data);
+	free(H);
+	free(data);
 	return return_val;
 }
 void mat_mpy4x4(int16_t* data, const int16_t* H)

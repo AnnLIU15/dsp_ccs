@@ -13,7 +13,7 @@
 #include"bmpInfo.h"
 
 /* sa function */
-
+void mat_process(int16_t*data,int16_t*tmp_data,int16_t*H);
 /* c_function */
 
 /* matrix transfer*/
