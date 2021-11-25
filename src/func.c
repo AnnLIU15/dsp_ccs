@@ -29,21 +29,29 @@ uint8_t transfer_arr_p(const char* yuv_path, const char* save_path, const int32_
 			*(data + (read_data_size - 1 - j_4)) = get_data;
 		}
 
+	if(!is_sa)
+	{
 		for (j = idx_height - 1; j >= 0; j--)
 		{
 			j_4 = j << 2;
 			get_4x4_data(tmp_data, data, j_4, height);
-			if(!is_sa)
-			{
-				mat_mpy4x4(tmp_data, H);
-			}
-			else
-			{
-				mat_process(tmp_data,tmp_data_sa, H);
-			}
+			mat_mpy4x4(tmp_data, H);
+			// if(!is_sa)
+			// {
+			// 	mat_mpy4x4(tmp_data, H);
+			// }
+			// else
+			// {
+			// 	mat_process(tmp_data,tmp_data_sa, H);
+			// }
 			//mat_process(data,tmp_data, H);
 			back_4x4_data(data, tmp_data, j_4, height);
 		}
+	}
+	else
+	{
+		mat_process_c(data,tmp_data, H,idx_height);
+	}
 		fwrite(data, sizeof(int16_t), read_data_size, out_ptr);
 	}
 	free(tmp_data_sa);

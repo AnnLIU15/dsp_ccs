@@ -6,7 +6,7 @@
 #include "include/func.h"
 int main(void)
 {
-	uint8_t is_sa = 1;
+	uint8_t is_sa = 0;
 	const char *hw4_in = "../data/data.yuv";
 	const char *hw4_out_c = "../output/data_process.txt";
 	const char *hw4_out_sa = "../output/data_process1.txt";

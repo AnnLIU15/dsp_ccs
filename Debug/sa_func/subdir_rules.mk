@@ -3,27 +3,6 @@
 ################################################################################
 
 # Each subdirectory must supply rules for building sources it contributes
-sa_func/cal_abcd.obj: ../sa_func/cal_abcd.sa $(GEN_OPTS) $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: C6000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6400 --abi=coffabi -O1 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --define=dm642 --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="sa_func/cal_abcd.pp" --obj_directory="sa_func" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-sa_func/cal_bilinear.obj: ../sa_func/cal_bilinear.sa $(GEN_OPTS) $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: C6000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6400 --abi=coffabi -O1 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --define=dm642 --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="sa_func/cal_bilinear.pp" --obj_directory="sa_func" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-sa_func/float2int.obj: ../sa_func/float2int.sa $(GEN_OPTS) $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: C6000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6400 --abi=coffabi -O1 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --define=dm642 --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="sa_func/float2int.pp" --obj_directory="sa_func" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
 sa_func/mat_process.obj: ../sa_func/mat_process.sa $(GEN_OPTS) $(GEN_HDRS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: C6000 Compiler'
@@ -31,24 +10,10 @@ sa_func/mat_process.obj: ../sa_func/mat_process.sa $(GEN_OPTS) $(GEN_HDRS)
 	@echo 'Finished building: $<'
 	@echo ' '
 
-sa_func/single_test.obj: ../sa_func/single_test.sa $(GEN_OPTS) $(GEN_HDRS)
+sa_func/mat_process_c.obj: ../sa_func/mat_process_c.sa $(GEN_OPTS) $(GEN_HDRS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: C6000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6400 --abi=coffabi -O1 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --define=dm642 --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="sa_func/single_test.pp" --obj_directory="sa_func" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-sa_func/ufloat2int.obj: ../sa_func/ufloat2int.sa $(GEN_OPTS) $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: C6000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6400 --abi=coffabi -O1 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --define=dm642 --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="sa_func/ufloat2int.pp" --obj_directory="sa_func" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-sa_func/ycbcr2rgb_col.obj: ../sa_func/ycbcr2rgb_col.sa $(GEN_OPTS) $(GEN_HDRS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: C6000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6400 --abi=coffabi -O1 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --define=dm642 --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="sa_func/ycbcr2rgb_col.pp" --obj_directory="sa_func" $(GEN_OPTS__FLAG) "$<"
+	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6400 --abi=coffabi -O1 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --define=dm642 --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="sa_func/mat_process_c.pp" --obj_directory="sa_func" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

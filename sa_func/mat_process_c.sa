@@ -1,0 +1,116 @@
+; mat_process_c.sa
+; Y = H * X * H'
+; @date 2021125
+	.global _mat_process_c
+
+
+_mat_process_c: .cproc data, tmp_data, H, height_div4
+            .reg mat_1, mat_2
+            .reg rt_v
+            .reg idx0,idx1,idx_data,tmp,height
+            .reg ori_k,k_4,l,m,cnt_j4
+            shl     height_div4,2,height
+            
+j_iter:     
+            sub     height_div4,1,height_div4
+            mvk     16,ori_k
+            ||shl   height_div4,2,cnt_j4
+k_iter1:
+            sub		    ori_k,1,ori_k
+            ||mvk       4,m
+            shr         ori_k,2,k_4
+            ||mvk       0,rt_v
+            shl         k_4,2,k_4
+            sub         ori_k,k_4,l
+            mpy         l,height,tmp
+m_iter1:
+            sub		    m,1,m
+            add         k_4,m,idx0
+            ||add       cnt_j4,m,idx1
+            add         tmp,idx1,idx1       
+            ldh         *+H[idx0],mat_1
+            ||ldh       *+data[idx1],mat_2
+            mpy         mat_1,mat_2,mat_2
+            add         rt_v,mat_2,rt_v
+            [m] B m_iter1
+            sth         rt_v,*+tmp_data[ori_k]
+            [ori_k] B k_iter1
+            mvk         16,ori_k
+k_iter2:
+            sub		    ori_k,1,ori_k
+            shr         ori_k,2,idx_data
+            ||mvk       4,m             
+            shl         idx_data,2,k_4
+            sub         ori_k,k_4,l
+            ||mvk       0,rt_v
+            mpy         l,height,tmp
+            ||add         idx_data,cnt_j4,idx_data
+            add         idx_data,tmp,idx_data
+m_iter2:
+            sub		    m,1,m
+            ||shl       l,2,idx1
+            add         k_4,m,idx0
+            ||add       idx1,m,idx1       
+            ldh         *+H[idx1],mat_1
+            ||ldh       *+tmp_data[idx0],mat_2
+            mpy         mat_1,mat_2,mat_2
+            add         rt_v,mat_2,rt_v
+            [m] B m_iter2
+            sth         rt_v,*+data[idx_data]
+            [ori_k] B k_iter2
+            [height_div4] B j_iter
+            .endproc
+
+;; mat_process.sa
+;; Y = H * X * H'
+;; @date 2021125
+;	.global _mat_process
+;
+;
+;_mat_process: .cproc data, tmp_data, H
+;            .reg mat_1, mat_2, rt_v
+;            .reg idx0,tmp
+;            .reg ori_k,k_4,l,m
+;            mvk     16,ori_k
+;k_iter1:
+;            sub		    ori_k,1,ori_k
+;            mvk         4,m
+;            ||mvk       0,rt_v
+;            shr         ori_k,2,k_4
+;            shl         k_4,2,k_4
+;            sub         ori_k,k_4,l
+;m_iter1:
+;            sub		    m,1,m
+;            add         k_4,m,idx0
+;            ||shl       m,2,tmp
+;            ldh         *+H[idx0],mat_1
+;            add         tmp,l,idx0    
+;            ldh         *+data[idx0],mat_2
+;            mpy         mat_1,mat_2,mat_2
+;            add         rt_v,mat_2,rt_v
+;            [m] B m_iter1
+;            sth         rt_v,*+tmp_data[ori_k]
+;            [ori_k] B k_iter1
+;            mvk         16,ori_k
+;k_iter2:
+;            sub		    ori_k,1,ori_k
+;            shru        ori_k,2,k_4
+;            ||mvk       4,m             
+;            shl         k_4,2,k_4
+;            sub         ori_k,k_4,tmp
+;            ||mvk       0,rt_v
+;            shl         tmp,2,tmp
+;m_iter2:
+;            sub		    m,1,m
+;            add         tmp,m,idx0       
+;            ldh         *+H[idx0],mat_1
+;            add         k_4,m,idx0
+;            ldh         *+tmp_data[idx0],mat_2
+;            mpy         mat_1,mat_2,mat_2
+;            add         rt_v,mat_2,rt_v
+;            [m] B m_iter2
+;            sth         rt_v,*+data[ori_k]
+;            [ori_k] B k_iter2
+;
+;            .endproc
+;
