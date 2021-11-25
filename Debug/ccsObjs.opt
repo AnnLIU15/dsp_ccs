@@ -1,1 +1,1 @@
-"./sa_func/mat_process_c.obj" "./sa_func/mat_process.obj" "./src/func.obj" "./main.obj" "../DM642.cmd" -l"libc.a" 
+"./sa_func/ycbcr2rgb_col.obj" "./sa_func/ufloat2int.obj" "./sa_func/single_test.obj" "./sa_func/mat_process_c.obj" "./sa_func/mat_process.obj" "./sa_func/float2int.obj" "./sa_func/cal_bilinear.obj" "./sa_func/cal_abcd.obj" "./src/func.obj" "./main.obj" "../DM642.cmd" -l"libc.a" 
