@@ -1,0 +1,1 @@
+-l"./tskcfg.cmd" "./tskcfg_c.obj" "./tskcfg.obj" "./tsk.obj" -l"libc.a" 
