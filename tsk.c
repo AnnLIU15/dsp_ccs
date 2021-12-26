@@ -59,7 +59,7 @@ Void philosopher(Arg id_arg)
                 state[idx] = EATING;
                 s[LEFT] = 0;
                 s[RIGHT] = 0;
-                LOG_printf(&trace, "Philosopher %d Eating(%d times)", idx, s[idx]);
+                LOG_printf(&trace, "Philosopher %d Eating(%d times)", idx, times_eat[idx]);
                 TSK_sleep(5);       /* 吃饭需要一点时间 */
             }
             else
