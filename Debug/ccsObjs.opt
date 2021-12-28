@@ -1,0 +1,1 @@
+-l"./tsk6cfg.cmd" "./src/clock.obj" "./tsk6cfg_c.obj" "./tsk6cfg.obj" "./tsk6.obj" -l"libc.a" 
